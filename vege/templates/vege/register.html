@@ -1,0 +1,44 @@
+{% extends "vege/base.html" %}
+
+{% block start %}
+
+<div class="container mt-5">
+    <form class="card p-3 col-6 mx-auto" method="post">
+        {% csrf_token %}
+        <h2>Sign UP</h2>
+        <hr>
+        {% if messages %}
+          <div class="alert alert-danger" role="alert">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="form-group mb-3">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name">
+        </div>
+
+      <div class="form-group mb-3">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <p>Already User <a href="/login/">Login</a> Here</p>
+      <button type="submit" class="btn btn-success">Sign UP</button>
+    </form>
+</div>
+
+
+{% endblock %}
